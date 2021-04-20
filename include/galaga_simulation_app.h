@@ -25,6 +25,10 @@ class GalagaApp : public ci::app::App {
 
  private:
   PlayingScreen container_;
+ float x_movement = 0;
+ float y_movment = 0;
+ float x_start = 300;
+ float y_start = 700;
 };
 
 }  // namespace idealgas
