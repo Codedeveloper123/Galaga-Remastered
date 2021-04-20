@@ -10,12 +10,12 @@ namespace idealgas {
  * The container in which all of the gas particles are contained. This class
  * stores all of the particles and updates them on each frame of the simulation.
  */
-class GasContainer {
+class PlayingScreen {
  public:
   /**
    * TODO: Add more parameters to this constructor, and add documentation.
    */
-  GasContainer();
+  PlayingScreen();
 
   /**
    * Displays the container walls and the current positions of the particles.

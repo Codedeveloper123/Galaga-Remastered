@@ -1,11 +1,11 @@
+#include <playing_screen.h>
+
 #include <catch2/catch.hpp>
 
-#include <gas_container.h>
-
-using idealgas::GasContainer;
+using idealgas::PlayingScreen;
 
 TEST_CASE("Placeholder test") {
-  GasContainer container;
+  PlayingScreen container;
   container.AdvanceOneFrame();
   REQUIRE(1 > 0);
 }

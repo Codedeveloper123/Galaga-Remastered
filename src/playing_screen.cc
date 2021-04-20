@@ -1,22 +1,21 @@
-#include "gas_container.h"
+#include "playing_screen.h"
 
 namespace idealgas {
 
 using glm::vec2;
 
-GasContainer::GasContainer() {
+PlayingScreen::PlayingScreen() {
 
 }
-
-void GasContainer::Display() const {
+void PlayingScreen::Display() const {
   // This function has a lot of magic numbers; be sure to design your code in a way that avoids this.
   ci::gl::color(ci::Color("orange"));
   ci::gl::drawSolidCircle(vec2(dummy_variable_, 200), 10);
   ci::gl::color(ci::Color("white"));
-  ci::gl::drawStrokedRect(ci::Rectf(vec2(100, 100), vec2(600, 400)));
+  ci::gl::drawStrokedRect(ci::Rectf(vec2(100, 100), vec2(600, 800)));
 }
 
-void GasContainer::AdvanceOneFrame() {
+void PlayingScreen::AdvanceOneFrame() {
   ++dummy_variable_;
 }
 
