@@ -7,14 +7,17 @@ GalagaApp::GalagaApp() {
 }
 void GalagaApp::setup() {
   auto img = loadImage( loadAsset( "AmanShip.png" ) );
-  mTex = ci::gl::Texture2d::create( img );}
+  ship = ci::gl::Texture2d::create( img );
+}
 void GalagaApp::draw() {
   ci::Color background_color("black");
   ci::gl::clear(background_color);
   ci::gl::pushModelMatrix();
   ci::gl::translate(x_start + x_movement,y_start + y_movment);
-  ci::gl::draw(mTex);
+  ci::gl::draw(ship);
   ci::gl::popModelMatrix();
+  ci::gl::drawString("GALAGA",vec2(230,50),"Red",
+                     ci::Font("",70.0f));
   if(missels) {
     DrawMissles();
   }

@@ -15,16 +15,27 @@ namespace idealgas {
 class GalagaApp : public ci::app::App {
  public:
   GalagaApp();
+  /**
+   * This function runs once when the app boots up.
+   */
   void GalagaApp::setup();
+  /**
+   * This function handles keyinputs from the user.
+   * @param event
+   */
   void GalagaApp::keyDown(cinder::app::KeyEvent event);
   void draw() override;
   void update() override;
-  ci::gl::Texture2dRef		mTex;
+  //Represents the galaga ship.
+  ci::gl::Texture2dRef		ship;
   const int kWindowSize = 875;
   const int kMargin = 100;
 
  private:
   bool missels = false;
+  /**
+   * This  draws the missles shot by the ship.
+   */
   void DrawMissles();
   PlayingScreen container_;
  float x_movement = 0;
