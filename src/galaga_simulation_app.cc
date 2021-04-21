@@ -15,6 +15,9 @@ void GalagaApp::draw() {
   ci::gl::translate(x_start + x_movement,y_start + y_movment);
   ci::gl::draw(mTex);
   ci::gl::popModelMatrix();
+  if(missels) {
+    DrawMissles();
+  }
   container_.Display();
 }
 void GalagaApp::keyDown(KeyEvent event) {
@@ -44,14 +47,21 @@ void GalagaApp::keyDown(KeyEvent event) {
       break;
     }
     case KeyEvent::KEY_SPACE: {
-
+        missels = true;
+        break;
     }
   }
-
-
+}
+void GalagaApp::DrawMissles() {
+  ci::gl::color(ci::Color("green"));
+  ci::gl::drawSolidRect(ci::Rectf(vec2(misslexposition, missleyposition), vec2(misslexposition +10, missleyposition+10)));
+  ci::gl::drawSolidRect(ci::Rectf(vec2(misslexposition + 45, missleyposition), vec2(misslexposition + 55 , missleyposition + 10)));
 }
 void GalagaApp::update() {
   container_.AdvanceOneFrame();
+  if(missels) {
+    missleyposition -= 10;
+  }
 
 }
 
