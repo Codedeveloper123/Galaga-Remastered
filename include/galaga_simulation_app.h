@@ -33,17 +33,29 @@ class GalagaApp : public ci::app::App {
 
  private:
   bool missels = false;
+  bool missels2 = true;
+  int i = 1;
   /**
    * This  draws the missles shot by the ship.
    */
   void DrawMissles();
+  /**
+   * This handles the collisions of the ships missiles hitting the enemy ships.
+   */
+  void MissleCollisions();
+  /**
+   * This draws the enemy ships for the game.
+   */
+  void DrawEnemyShips();
   PlayingScreen container_;
  float x_movement = 0;
  float y_movment = 0;
  float x_start = 300;
+ float movment2 = 0;
  float y_start = 700;
- float misslexposition = x_movement+x_start;
- float missleyposition = y_start + y_movment;
+ float misslexposition;
+ float movment = 0;
+ float missleyposition;
 };
 
 }  // namespace idealgas

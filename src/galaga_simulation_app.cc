@@ -18,8 +18,15 @@ void GalagaApp::draw() {
   ci::gl::popModelMatrix();
   ci::gl::drawString("GALAGA",vec2(230,50),"Red",
                      ci::Font("",70.0f));
+  if(missels2) {
+    DrawEnemyShips();
+  }
   if(missels) {
     DrawMissles();
+    if(missleyposition + movment < 100) {
+      missels = false;
+      movment = 0;
+    }
   }
   container_.Display();
 }
@@ -57,14 +64,36 @@ void GalagaApp::keyDown(KeyEvent event) {
 }
 void GalagaApp::DrawMissles() {
   ci::gl::color(ci::Color("green"));
-  ci::gl::drawSolidRect(ci::Rectf(vec2(misslexposition, missleyposition), vec2(misslexposition +10, missleyposition+10)));
-  ci::gl::drawSolidRect(ci::Rectf(vec2(misslexposition + 45, missleyposition), vec2(misslexposition + 55 , missleyposition + 10)));
+  misslexposition = x_start + x_movement;
+  missleyposition = y_start + y_movment;
+  ci::gl::drawSolidRect(ci::Rectf(vec2(misslexposition, missleyposition + movment), vec2(misslexposition +10, missleyposition+10 + movment)));
+  ci::gl::drawSolidRect(ci::Rectf(vec2(misslexposition + 45, missleyposition + movment), vec2(misslexposition + 55 , missleyposition + 10 + movment)));
+}
+void GalagaApp:: DrawEnemyShips() {
+  ci::gl::color(ci::Color("blue"));
+  int x = 0;
+  for(int i = 0; i < 11; i++) {
+    ci::gl::drawSolidRect(ci::Rectf(vec2(140 + x,120 + movment2),vec2(160 + x,140 + movment2)));
+    x += 40;
+  }
+}
+void GalagaApp:: MissleCollisions() {
+
 }
 void GalagaApp::update() {
   container_.AdvanceOneFrame();
   if(missels) {
-    missleyposition -= 10;
+    movment -= 10;
   }
+  movment2 += 1;
+   i+= 1;
+    if(i % 650 == 0) {
+      missels2 = false;
+      movment2 = 0;
+    }
+    if(i % 655 == 0) {
+      missels2 = true;
+    }
 
 }
 
