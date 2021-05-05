@@ -10,30 +10,30 @@ TEST_CASE("Ships Colliding with walls") {
     galagasimulation::Ships ships =
         galagasimulation::Ships(vec2(581, 280), vec2(601, 300), vec2(6, 0));
     ships.UpdatePosition();
-    REQUIRE(ships.GetMovment().x == -6);
+    REQUIRE(ships.GetMovement().x == -6);
   }
   SECTION("Ships Colliding with left wall") {
     galagasimulation::Ships ships =
         galagasimulation::Ships(vec2(99, 280), vec2(119, 300), vec2(6, 0));
     ships.UpdatePosition();
-    REQUIRE(ships.GetMovment().x == -6);
+    REQUIRE(ships.GetMovement().x == -6);
   }
   SECTION("Ships Colliding with top wall") {
     galagasimulation::Ships ships =
         galagasimulation::Ships(vec2(400, 99), vec2(420, 119), vec2(0, 2));
     ships.UpdatePosition();
-    REQUIRE(ships.GetMovment().y == -2);
+    REQUIRE(ships.GetMovement().y == -2);
   }
   SECTION("Ships colliding with bottom wall") {
     galagasimulation::Ships ships =
         galagasimulation::Ships(vec2(400, 780), vec2(420, 801), vec2(0, 2));
     ships.UpdatePosition();
-    REQUIRE(ships.GetMovment().y == -2);
+    REQUIRE(ships.GetMovement().y == -2);
   }
 }
 TEST_CASE("Missles Colliding with the Ships") {
   galagasimulation::GalagaApp galagaApp;
-  galagaApp.MissleCollisions
+  galagaApp.MissileCollisions
 }
 /*
 TODO: Rename this test file. You'll also need to modify CMakeLists.txt.

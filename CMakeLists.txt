@@ -53,7 +53,7 @@ list(APPEND SOURCE_FILES src/playing_screen.cc
         src/galaga_simulation_app.cc
         src/ships.cc)
 
-list(APPEND TEST_FILES tests/rename_this_test_file.cc)
+list(APPEND TEST_FILES tests/Shipstestfile.cc)
 
 ci_make_app(
         APP_NAME        gas-simulation

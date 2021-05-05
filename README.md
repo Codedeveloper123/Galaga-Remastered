@@ -4,8 +4,8 @@ Author: Joshua Joseph
 
 ## What is Galaga Remastered?
 Galaga Remastered is like the classic arcade Galaga that you may have seen growing up as a kid.  It is a one player game where the player controls a space ship
-and shoots missiles at enemy ships. If your missels hit the enemy ships they get destroyed and the players score goes up. If enemy ships hit your ship you lose a life.
-If you lose all three lives the game is over. You can move up, down, right and left and you can shoot missles using the space bar. 
+and shoots missiles at enemy ships_. If your missiles_have_been_drawn_ hit the enemy ships_ they get destroyed and the players score_ goes up. If enemy ships_ hit your ship you lose a life.
+If you lose all three lives_ the game is over. You can move up, down, right and left and you can shoot missles using the space bar. 
 ## Controls
 
 #### Keyboard

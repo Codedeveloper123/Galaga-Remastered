@@ -11,7 +11,7 @@
 namespace galagasimulation {
 
 /**
- * An app for visualizing the behavior of an ideal gas.
+ * An app for playing the classic arcade game Galaga.
  */
 class GalagaApp : public ci::app::App {
  public:
@@ -33,42 +33,63 @@ class GalagaApp : public ci::app::App {
   const int kMargin = 100;
 
  private:
-  bool missels = false;
-  bool missels2 = true;
-  int i = 1;
-  int score = 0;
+  bool missiles_have_been_drawn_ = false;
+  bool ships_have_been_drawn_ = true;
+  int timer_for_enemy_ships_ = 1;
+  int score_ = 0;
   /**
    * This  draws the missles shot by the ship.
    */
-  void DrawMissles();
+  void DrawMissiles();
   /**
-   * This handles the collisions of the ships missiles hitting the enemy ships.
+   * This handles the collisions of the ships_ missiles hitting the enemy ships_.
    */
-  void MissleCollisions();
+  void MissileCollisions();
   /**
-   * This draws the enemy ships for the game.
+   * This draws the enemy ships_ for the game.
    */
   void DrawEnemyShips();
   PlayingScreen container_;
-  std::vector<Ships> ships;
-  std::vector<Ships> missel;
-  float timer2 = 0;
+  std::vector<Ships> ships_;
+  std::vector<Ships> missiles_;
+  float timer_for_missile_collisions_ = 0;
+  /**
+   * This  creates all the enemy ships and adds them to the vector.
+   */
   void PopulateShipsVector();
-  bool doOverlap(Ships ship1, Ships missle);
+  /**
+   * This  checks if the enemy ships and missiles are overlapping.
+   * @param ship1
+   * @param missle
+   * @return
+   */
+
+  bool DoOverlap(Ships ship1, Ships missle);
+  /**
+   * This checks if the enemy ships have hit the players ship.
+   * @param ship1
+   * @return
+   */
+
   bool ShipsCollision(Ships ship1);
-  void PopulateMisselsVector();
-  void lifelost();
- float x_movement = 0;
- int lives = 3;
- float y_movment = 0;
- float x_start = 300;
- float movment2 = 0;
- float y_start = 700;
- float misslexposition;
- float movment = 0;
- float missleyposition;
- bool start = false;
- int timer = 0;
+  /**
+   * This populates the vector that stores the players missiles fired.
+   */
+
+  void PopulateMissilesVector();
+  /**
+   * This function checks to see if a player should lose a life.
+   */
+   void LifeLost();
+  float x_movement_for_player_ship_ = 0;
+  int lives_ = 3;
+ float y_movement_for_player_ship_ = 0;
+ const float x_start_position_for_player_ship_ = 300;
+ float y_start_position_for_player_ship_ = 700;
+ float missile_x_position_;
+ float missile_y_position_;
+ bool start_ = false;
+ int timer_ = 0;
 };
 
 }  // namespace galagasimulation
