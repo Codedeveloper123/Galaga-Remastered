@@ -1,6 +1,6 @@
 #include "galaga_simulation_app.h"
 
-using idealgas::GalagaApp;
+using galagasimulation::GalagaApp;
 
 void prepareSettings(GalagaApp::Settings* settings) {
   settings->setResizable(false);

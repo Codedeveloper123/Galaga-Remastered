@@ -6,8 +6,9 @@
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 #include "playing_screen.h"
+#include "ships.h"
 
-namespace idealgas {
+namespace galagasimulation {
 
 /**
  * An app for visualizing the behavior of an ideal gas.
@@ -35,6 +36,7 @@ class GalagaApp : public ci::app::App {
   bool missels = false;
   bool missels2 = true;
   int i = 1;
+  int score = 0;
   /**
    * This  draws the missles shot by the ship.
    */
@@ -48,7 +50,16 @@ class GalagaApp : public ci::app::App {
    */
   void DrawEnemyShips();
   PlayingScreen container_;
+  std::vector<Ships> ships;
+  std::vector<Ships> missel;
+  float timer2 = 0;
+  void PopulateShipsVector();
+  bool doOverlap(Ships ship1, Ships missle);
+  bool ShipsCollision(Ships ship1);
+  void PopulateMisselsVector();
+  void lifelost();
  float x_movement = 0;
+ int lives = 3;
  float y_movment = 0;
  float x_start = 300;
  float movment2 = 0;
@@ -56,6 +67,8 @@ class GalagaApp : public ci::app::App {
  float misslexposition;
  float movment = 0;
  float missleyposition;
+ bool start = false;
+ int timer = 0;
 };
 
-}  // namespace idealgas
+}  // namespace galagasimulation

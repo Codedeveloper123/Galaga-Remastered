@@ -4,7 +4,7 @@
 
 using glm::vec2;
 
-namespace idealgas {
+namespace galagasimulation {
 
 /**
  * The container in which all of the gas particles are contained. This class
@@ -36,4 +36,4 @@ class PlayingScreen {
   int dummy_variable_ = 0;
 };
 
-}  // namespace idealgas
+}  // namespace galagasimulation
